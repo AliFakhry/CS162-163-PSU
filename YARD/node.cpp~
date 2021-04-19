@@ -1,0 +1,51 @@
+//inports
+#include <iostream>
+#include "Node.h"
+
+Node::Node(char* setData)
+{
+ data = setData;
+ right = NULL;
+ left = NULL;
+ next = NULL;
+}
+
+void Node::setRight(Node * newRight)
+{ right = newRight;}
+
+void Node::setLeft(Node * newLeft)
+{ left = newLeft;}
+
+Node * Node::getRight()
+{ return right;}
+
+Node * Node::getLeft()
+{ return left;}
+
+void Node::setNext(Node* newNext)
+{ next = newNext; }
+
+Node* Node::getNext()
+{return next;}
+
+char* Node::getData()
+{ return data; }
+
+bool Node::isRight()
+{
+  if (left != NULL) {
+    return true;
+  }
+  else if (right == NULL) {
+    return false;
+  }
+}
+bool Node::isLeft()
+{
+  if (left != NULL) {
+    return true;
+  }
+  else if (right == NULL) {
+    return false;
+  }
+}

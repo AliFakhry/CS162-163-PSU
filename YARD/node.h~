@@ -1,0 +1,21 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+class Node {
+public:
+  Node(char*);
+  void setRight(Node*);
+  void setLeft(Node*);
+  Node* getRight();
+  Node* getLeft();
+  bool isLeft();
+  bool isRight();
+  void setNext(Node*);
+  Node* getNext();
+  char* getData();
+  Node* next = NULL;
+  Node* left = NULL;
+  Node* right = NULL;
+  char* data;
+};

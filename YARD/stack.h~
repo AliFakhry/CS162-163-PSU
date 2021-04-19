@@ -1,0 +1,12 @@
+#include "node.h"
+class stack {
+ public:                                                                                                                                                
+  stack(Node*);
+  ~stack();
+  void pop();
+  void push(Node*);
+  Node* headStack;                                                                                                                       
+  Node* peek();
+  Node* tailStack;
+};
+

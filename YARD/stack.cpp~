@@ -1,0 +1,54 @@
+#include "stack.h"
+#include "node.h"
+#include <iostream>
+
+using namespace std;
+
+stack::stack (Node* newHead) 
+{
+  headStack = newHead;
+}
+
+stack:: ~stack () {
+  delete headStack;
+  delete tailStack;
+}
+
+Node* stack::peek()
+{
+  return headStack;
+}
+
+void stack:: push (Node* IN) {
+  if(headStack !=NULL)
+    {
+      IN -> setNext(headStack);
+      headStack = IN;
+    }
+  else if (headStack == NULL) 
+    {
+      headStack = IN;
+      tailStack = IN;
+    }
+}
+
+Node* stack :: pop () {
+  Node* current = headStack;
+  Node* toreturn = NULL;
+  if (headStack != NULL) 
+    {
+      if (headStack -> getNext() != NULL) {
+      headStack = headStack -> getNext();
+       }
+      else {
+	toreturn = current;
+	headStack = NULL;
+      }
+    }
+  else if (headStack == 0) 
+    {
+      headStack = 0;
+      tailStack =0;
+    }
+  return current;
+}
