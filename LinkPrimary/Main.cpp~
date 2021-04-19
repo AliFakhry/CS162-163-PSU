@@ -1,0 +1,72 @@
+#include <iostream>
+#include <cstring>
+#include "Student.h"
+#include "Node.h"
+
+using namespace std;
+  
+void add(char* firstName, char* lastName, int ID, double GPA);
+void print (Node* head);
+
+
+int main ()
+{
+  char input[10];
+  char firstNameINPUT[10];
+  char lastNameINPUT[10];
+  double GPA;
+  int ID;
+  bool run = true;
+  
+      cout << "FirstName?" <<endl;
+      cin.get(firstNameINPUT,10);
+      cin.get();
+      cout << "LastName?" <<endl;
+      cin.get(lastNameINPUT,10);
+      cin.get();
+      cout << "ID?" << endl;
+      cin >> ID;
+      cout << "GPA?" <<endl;
+      cin >> GPA;
+      add(firstNameINPUT, lastNameINPUT, ID, GPA);
+}
+
+void add(char* firstName, char* lastName, int ID, double GPA){
+  bool running = true;
+  bool running2 = true;
+  Node* head = NULL;
+  Student* newStudent;
+  newStudent= new Student(firstName,lastName,ID,GPA);
+  Node* current = head;
+    if(current == NULL) {
+      head = new Node();
+      head -> setStudent (newStudent);
+    }
+    else if (current != NULL) {
+      if (current->getNext() != NULL) 
+	{
+	  running2 =false;
+	}
+      while (running2 == true) 
+      {
+	current = current -> getNext();
+      }
+      current -> setNext(new Node());
+      current -> getNext() -> setStudent(newStudent);
+    }
+    print(head);
+  }
+  void print(Node* temp) { 
+	if (temp != NULL)
+	  {
+	    cout << "FIRST NAME" << endl;
+	    cout << temp-> getStudent()->getFirstName() << endl;
+	    cout << "LAST:" << temp->getStudent()->getLastName() << endl;
+	    cout << "ID:"<<  temp->getStudent()->getID() << endl;
+	    cout << "GPA:" << temp -> getStudent() -> getGPA();
+	    print (temp -> getNext());
+	    cout<< endl;
+	    cout<<endl;
+	  }
+      }
+

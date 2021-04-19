@@ -1,0 +1,35 @@
+#include <iostream>
+#include <cstring>
+#include "Student.h"
+
+using namespace std;
+
+Student::Student(char* setFirstName, char* setLastName, int setID, double setGPA) {
+  // char firstName[10];
+  // char lastName[10];
+  //int ID;
+  //double GPA;
+  strcpy(firstName, setFirstName);
+  strcpy(lastName, setLastName);
+  ID = setID;
+  GPA = setGPA;
+}
+Student:: ~Student() {
+  delete &firstName;
+  delete &lastName;
+  delete &ID;
+  delete &GPA;
+}
+char* Student::getFirstName() {
+  cout << firstName <<endl;
+  return firstName;
+}
+char* Student::getLastName() {
+  return lastName;
+}
+double Student::getGPA() {
+  return GPA;
+}
+int Student::getID() {
+  return ID;
+}
