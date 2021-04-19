@@ -1,0 +1,20 @@
+#ifndef ROOM_H
+#define ROOM_H
+#include <iostream>
+#include <map>
+using namespace std;
+class Room {
+public:
+  Room();
+  void setDes(char*);//will set room description
+  char* getDes();//will return room description
+  void setMap(map<char*, Room*>*);//will set a map of exits
+  map<char*, Room*>* getMap();//will return a map of exits
+  void setTitle(char*);//will set room title
+  char* getTitle();//will return room title
+
+  char* des;//stores description of rooms
+  map<char*, Room*>* exits;//stores map of exits
+  char* title;//stores title of room
+};
+#endif
